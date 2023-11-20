@@ -15,10 +15,11 @@ const MapChart = () => {
         center: [-5, -3],
         scale: 1100
       }}
+      style={{width: "100%", height: "100%"}}
     >
       <Geographies
         geography="/features.json"
-        fill="#D6D6DA"
+        fill="#2c065d"
         stroke="#FFFFFF"
         strokeWidth={0.5}
       >
@@ -29,17 +30,17 @@ const MapChart = () => {
         }
       </Geographies>
       <Annotation
-        subject={[2.3522, 48.8566]}
+        subject={[-3.667, 40.500]}
         dx={-90}
         dy={-30}
         connectorProps={{
-          stroke: "#FF5533",
-          strokeWidth: 3,
+          stroke: "white",
+          strokeWidth: 2,
           strokeLinecap: "round"
         }}
       >
-        <text x="-8" textAnchor="end" alignmentBaseline="middle" fill="#F53">
-          {"Paris"}
+        <text x="-8" textAnchor="end" alignmentBaseline="middle" fill="white">
+          {"Madrid"}
         </text>
       </Annotation>
     </ComposableMap>
