@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import Cube from "./Cube";
 
 const Section = styled.div`
   height: 100vh;
@@ -17,6 +20,10 @@ const Container = styled.div`
 
 const Left = styled.div`
   flex: 1;
+
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Right = styled.div`
@@ -25,10 +32,19 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+
+  @media only screen and (max-width: 768px) {
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 72px;
+
+  @media only screen and (max-width: 768px) {
+    font-size: 54px;
+  }
 `;
 
 const WhatWeDo = styled.div`
@@ -65,7 +81,14 @@ const Who = () => {
   return (
     <Section>
       <Container>
-        <Left></Left>
+        <Left>
+          <Canvas camera={{fov: 25, position: [5, 5, 5]}}>
+            <OrbitControls enableZoom={false} autoRotate />
+            <ambientLight intensity={1} />
+            <directionalLight position={[3, 2, 1]} />
+            <Cube />
+          </Canvas>
+        </Left>
         <Right>
           <Title>Think outside the box</Title>
           <WhatWeDo>
